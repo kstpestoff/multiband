@@ -13,7 +13,7 @@ fout = [open(fileNameOut[x], "wb") for x in range(chanQtty)]
 fin = open(fileNameIn, "rb")
 
 # signal params
-sps = 8
+sps = 16
 signalBand = 50e6
 freqSpacing = 6250
 
@@ -31,7 +31,7 @@ while len(signal) >= iqsQtty:
     spectrum =  np.fft.fft(signal)
 
     for chanIdx in range(chanQtty):    
-        iq.Write(fout[chanIdx], spectrum[chanIdx] * np.exp(+1j*2*np.pi*(chanIdx*idx)/sps), 1, np.float32)
+        iq.Write(fout[chanIdx], spectrum[chanIdx], 1, np.float32)
 
     signal = np.concatenate((signal[:iqsQtty-int(iqsQtty/sps):],iq.Read(fin, int(iqsQtty/sps), np.float32)))
     idx = idx + 1

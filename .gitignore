@@ -1,0 +1,6 @@
+
+*.pcm
+.vs/multiband/v16/.suo
+*.json
+*.sqlite
+*.pyc

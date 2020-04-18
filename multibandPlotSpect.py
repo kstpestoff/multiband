@@ -10,7 +10,12 @@ import numpy as np
 chanQtty = 8
 qtty = 128
 
+filePath = "signals/"
 fileNameIn = "multiband_test_signal_IDFT.pcm"
+
+fon = filePath + fileNameIn
+
+fout = open(fon, "wb")
 
 fileNameOut = [fileNameIn + ".chn." + str(x) + ".pcm" for x in range(chanQtty)]
 fout = [open(fileNameOut[x], "rb") for x in range(chanQtty)]

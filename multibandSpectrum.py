@@ -8,11 +8,14 @@ import numpy as np
 dftLen = 8000
 fftQtty = 1
  
+filePath = "signals/"
 fileNameIn = "multiband_test_signal_IDFT.pcm"
 
-fin = open(fileNameIn,"rb")
+fin = filePath + fileNameIn
 
-iqs = iq.Read(fin, dftLen*fftQtty, np.float32)
+fid = open(fin,"rb")
+
+iqs = iq.Read(fid, dftLen*fftQtty, np.float32)
 
 spectrum = np.log10(abs(np.fft.fft(iqs)))
 

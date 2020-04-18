@@ -1,8 +1,12 @@
 import numpy as np
 import multibandIqFuncs as iq
 
-outF = "multiband_test_signal.pcm"
-fout = open(outF, "wb")
+filePath = "signals/"
+fileNameOut = "multiband_test_signal_IDFT.pcm"
+
+fon = filePath + fileNameOut
+
+fout = open(fon, "wb")
 
 fileLen = int(50e6 / 2)
 
