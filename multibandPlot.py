@@ -6,7 +6,7 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 
-chanQtty = 24
+chanQtty = 12
 qtty = 256
 
 filePath = "signals/"
@@ -22,7 +22,7 @@ dataRead = 0
 idx = 0
 ax = []
 
-colQtty = 4
+colQtty = 3
 
 fig, ax = plt.subplots(int(chanQtty/colQtty), colQtty)
 
@@ -38,3 +38,6 @@ for chnIdx in range(chanQtty):
     plt.setp(curFig, 'linewidth', 0.4)
 
 plt.show()
+
+for chanIdx in range(chanQtty):
+    fout[chanIdx].close()
